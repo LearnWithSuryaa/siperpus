@@ -94,8 +94,8 @@ Format `.csv` ini digunakan sebagai alternatif ringan pengganti database relasio
 Berisi kelas-kelas _controller_ JavaFX (annotasi `@FXML`) yang mengatur interaksi antara antarmuka pengguna (FXML) dan logika program. Contoh:
 
 - `LoginController.java`
-- `DashboardAdminController.java`
-- `PeminjamanController.java`
+- `BukuSayaController.java`
+- `BerandaMemberController.java`
 
 #### `dao/`
 
@@ -142,11 +142,11 @@ public class App extends Application {
 
 Berisi **desain antarmuka UI** menggunakan FXML (XML untuk JavaFX). Setiap halaman memiliki file FXML masing-masing:
 
-- `Login.fxml`
-- `DashboardAdmin.fxml`
-- `Katalog.fxml`
-- `Profile.fxml`
-- `Pengembalian.fxml`
+- `LoginView.fxml`
+- `BerandaMemberView.fxml`
+- `BukuSayaView.fxml`
+- `ProfilView.fxml`
+- `PengembalianView.fxml`
 
 FXML ini dikaitkan langsung dengan controller yang sesuai.
 
