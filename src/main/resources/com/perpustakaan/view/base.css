@@ -1,0 +1,5 @@
+/* Hanya berisi definisi font yang akan digunakan oleh semua tema */
+@font-face {
+    -fx-font-family: 'Press Start 2P';
+    src: url("../../../fonts/PressStart2P-Regular.ttf");
+}

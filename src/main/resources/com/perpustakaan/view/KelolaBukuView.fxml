@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="com.perpustakaan.controller.KelolaBukuController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <Label styleClass="page-title" text="Katalog Buku" HBox.hgrow="ALWAYS" />
+            <Button fx:id="tambahBukuButton" onAction="#handleTambahBukuButton"
+               styleClass="add-button" text="Tambah Buku Baru" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToWidth="true" styleClass="scroll-pane-pixel">
+         <content>
+            <TilePane fx:id="bookTilePane" hgap="20.0" vgap="20.0" />
+         </content>
+      </ScrollPane>
+   </center>
+   <right>
+      <VBox fx:id="formPanel" managed="false" spacing="15.0" styleClass="form-container"
+         visible="false">
+         <BorderPane.margin>
+            <Insets left="25.0" />
+         </BorderPane.margin>
+         <children>
+            <Label fx:id="formTitleLabel" styleClass="form-title" text="Detail Buku" />
+            <GridPane hgap="10.0" vgap="15.0">
+               <children>
+                  <Label text="ISBN" />
+                  <TextField fx:id="isbnField" styleClass="input-field" GridPane.columnIndex="1" />
+                  <Label text="Judul" GridPane.rowIndex="1" />
+                  <TextField fx:id="titleField" styleClass="input-field" GridPane.columnIndex="1"
+                     GridPane.rowIndex="1" />
+                  <Label text="Penulis" GridPane.rowIndex="2" />
+                  <TextField fx:id="authorField" styleClass="input-field" GridPane.columnIndex="1"
+                     GridPane.rowIndex="2" />
+                  <Label text="Kategori" GridPane.rowIndex="3" />
+                  <TextField fx:id="categoryField" styleClass="input-field" GridPane.columnIndex="1"
+                     GridPane.rowIndex="3" />
+                  <Label text="Status" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="statusComboBox" maxWidth="1.7976931348623157E308"
+                     styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Button fx:id="addButton" onAction="#handleAddFormButton" styleClass="add-button"
+                     text="Tambah" />
+                  <Button fx:id="updateButton" onAction="#handleUpdateFormButton"
+                     styleClass="update-button" text="Simpan">
+                  <graphic>
+                     <ImageView fitHeight="16.0" fitWidth="16.0">
+                        <image>
+                           <Image url="@../../../images/icon_save.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="clearButton" onAction="#handleClearFormButton"
+                     styleClass="icon-button">
+                     <tooltip>
+                        <Tooltip text="Bersihkan Form" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0">
+                           <image>
+                              <Image url="@../../../images/icon_eraser.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="deleteButton" onAction="#handleDeleteButton"
+                     styleClass="icon-button-delete">
+                     <tooltip>
+                        <Tooltip text="Hapus Buku" />
+                     </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0">
+                           <image>
+                              <Image url="@../../../images/icon_trash.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

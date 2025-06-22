@@ -1,0 +1,303 @@
+/* ===================================================================
+   THEME DASHBOARD - MODERN PIXEL 
+   =================================================================== */
+
+/* 1. VARIABEL & GAYA GLOBAL DASAR */
+.root {
+    -dark-panel: #272d37;
+    -light-panel: #f4f4f8;
+    -white-panel: #ffffff;
+    -primary-light: #9c4dcc; 
+    -primary-accent: #ff4a4a;
+    -secondary-accent: #ffc800;
+    -blue-info: #3498db;
+    -green-ok: #27ae60;
+    -orange-warning: #e67e22;
+    -red-danger: #c0392b;
+    -grey-neutral: #7f8c8d;
+    -grey-dark: #757575;
+    -text-light: #f1f1f1;
+    -text-dark: #1e1e1e;
+    -text-muted: #555555;
+    -border-color: #cccccc;
+    -border-color-dark: #1e1e1e;
+}
+
+/* Gaya font dasar untuk semua kontrol utama (digabungkan dari duplikat) */
+.label, .button, .toggle-button, .text-field, .table-view, .choice-box, 
+.radio-button, .hyperlink, .tooltip, .text-area, .list-view {
+    -fx-font-family: 'Press Start 2P';
+}
+
+/* Memastikan konten di dalam TextArea juga menggunakan font yang sama */
+.text-area .content {
+    -fx-font-family: 'Press Start 2P';
+}
+
+/* ===================================================================
+   2. LAYOUT & CONTAINER UTAMA
+   =================================================================== */
+
+.content-area { 
+    -fx-background-color: -light-panel; 
+}
+
+.sidebar { 
+    -fx-background-color: -dark-panel; 
+    -fx-padding: 15px; 
+    -fx-spacing: 15px; 
+    -fx-border-color: transparent -primary-accent transparent transparent; 
+    -fx-border-width: 4px; 
+}
+
+/* Gaya dasar untuk semua container/panel berbentuk 'kartu' */
+.list-container, .form-container, .action-card, .stats-card, .limit-info-panel, .member-card, .pinjaman-card {
+    -fx-background-color: -white-panel;
+    -fx-border-color: -border-color;
+    -fx-border-width: 2px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 25px;
+}
+
+.action-card { 
+    -fx-spacing: 15px; 
+    -fx-alignment: TOP_LEFT; 
+    -fx-cursor: hand; 
+}
+.action-card:hover { 
+    -fx-border-color: -primary-accent; 
+    -fx-background-color: #fffcfc; 
+}
+
+.user-profile-box { 
+    -fx-padding: 15px 10px; 
+    -fx-spacing: 5px; 
+    -fx-border-color: #444 transparent transparent transparent; 
+    -fx-border-width: 2px; 
+}
+
+/* ===================================================================
+   3. TIPOGRAFI
+   =================================================================== */
+
+/* Judul & Label Form */
+.page-title { -fx-font-size: 20px; -fx-text-fill: -text-dark; }
+.form-title { -fx-font-size: 14px; -fx-text-fill: -text-dark; -fx-padding: 0 0 10px 0; -fx-border-color: transparent transparent -border-color transparent; -fx-border-width: 2px; }
+.form-label { -fx-font-size: 11px; -fx-text-fill: -grey-dark; -fx-padding: 0 0 0 2px; }
+.page-subtitle, .action-card-desc { -fx-font-size: 10px; -fx-text-fill: -text-muted; }
+
+/* Tipografi Sidebar */
+.sidebar-title { -fx-font-size: 14px; -fx-text-fill: -text-light; -fx-alignment: center; }
+.user-name-label { -fx-font-size: 11px; -fx-text-fill: -text-light; -fx-font-weight: bold; }
+.user-id-label { -fx-font-size: 9px; -fx-text-fill: #aaa; }
+.clock-label { -fx-font-size: 18px; -fx-text-fill: -secondary-accent; -fx-alignment: CENTER; -fx-padding: 10px 0; -fx-border-color: transparent transparent #444 transparent; -fx-border-width: 2px; }
+
+/* Tipografi Kartu & Statistik */
+.action-card-title, .pinjaman-card-title { -fx-font-size: 14px; -fx-text-fill: -text-dark; -fx-font-weight: bold; }
+.stats-number { -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: -text-dark; }
+.stats-label { -fx-font-size: 8px; -fx-text-fill: -grey-neutral; -fx-padding-top: 5px; }
+.pinjaman-due-date, .pinjaman-card-duedate { -fx-font-size: 9px; -fx-text-fill: -grey-neutral; }
+.member-card-name { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: -text-dark; }
+.member-card-id { -fx-font-size: 9px; -fx-text-fill: -grey-neutral; }
+.denda-display-text { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: -text-dark; }
+
+/* Tipografi Halaman Profil */
+.info-label { -fx-font-size: 12px; -fx-text-fill: -grey-dark; }
+.info-data { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: -text-dark; }
+
+
+/* ===================================================================
+   4. TOMBOL (BUTTONS)
+   =================================================================== */
+
+/* Gaya Dasar untuk semua Tombol Teks */
+.button, .toggle-button {
+    -fx-pref-height: 45px;
+    -fx-background-radius: 0; 
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-font-size: 10px;
+    -fx-text-fill: -text-light;
+    -fx-cursor: hand;
+}
+
+/* Tombol Aksi Utama (Add, Delete, Update, Clear) dan Tombol Filter (Baru) */
+.add-button, .delete-button, .update-button, .clear-button, .filter-button-apply, .filter-button-reset {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+.add-button, .delete-button, .update-button { /* Hanya tombol dengan shadow */
+    -fx-effect: dropshadow(gaussian, derive(#000000, 30%), 0, 0, 3, 3);
+}
+.add-button:pressed, .delete-button:pressed, .update-button:pressed {
+    -fx-effect: none;
+    -fx-translate-y: 2px;
+    -fx-translate-x: 2px;
+}
+.add-button, .delete-button { -fx-pref-height: 55px; -fx-padding: 0 20px; }
+.filter-button-apply, .filter-button-reset { -fx-pref-height: 40px; }
+
+/* -- Warna & Hover Spesifik Tombol Aksi -- */
+/* Hijau */
+.add-button { -fx-background-color: -green-ok; -fx-border-color: derive(#000000, 50%); }
+.add-button:hover { -fx-background-color: derive(-green-ok, -15%); }
+/* Merah */
+.delete-button { -fx-background-color: -red-danger; -fx-border-color: derive(#000000, 50%); }
+.delete-button:hover { -fx-background-color: derive(-red-danger, -15%); }
+/* Biru (Update & Apply Filter digabung) */
+.update-button, .filter-button-apply { -fx-background-color: -blue-info; -fx-border-color: derive(-blue-info, -30%); }
+.update-button:hover, .filter-button-apply:hover { -fx-background-color: derive(-blue-info, -15%); }
+/* Abu-abu (Clear & Reset Filter digabung) */
+.clear-button, .filter-button-reset { -fx-background-color: -grey-neutral; }
+.clear-button:hover, .filter-button-reset:hover { -fx-background-color: derive(-grey-neutral, -15%); }
+
+/* Tombol Sidebar */
+.sidebar-button { 
+    -fx-background-color: transparent; 
+    -fx-text-fill: -text-light; 
+    -fx-alignment: CENTER_LEFT; 
+    -fx-pref-width: 200px; 
+    -fx-padding: 10 15; 
+    -fx-border-color: transparent;
+}
+.sidebar-button:hover { -fx-background-color: derive(-dark-panel, 20%); }
+.sidebar-button:selected { -fx-background-color: -primary-accent; }
+
+/* Tombol Ikon (Lingkaran) */
+.icon-button, .icon-button-delete {
+    -fx-pref-height: 40px;
+    -fx-pref-width: 40px;
+    -fx-background-radius: 50%;
+    -fx-padding: 0;
+    -fx-transition: all 0.2s ease;
+}
+.icon-button { -fx-background-color: #e0e0e0; }
+.icon-button .glyph-icon { -fx-fill: -grey-dark; }
+.icon-button:hover { -fx-background-color: #cccccc; }
+.icon-button-delete { -fx-background-color: transparent; -fx-border-color: #e0e0e0; -fx-border-radius: 50%; -fx-border-width: 1px; }
+.icon-button-delete .glyph-icon { -fx-fill: -red-danger; }
+.icon-button-delete:hover { -fx-background-color: -red-danger; -fx-border-color: transparent; }
+.icon-button-delete:hover .glyph-icon { -fx-fill: white; }
+
+/* ===================================================================
+   5. FORM, INPUT & PILIHAN
+   =================================================================== */
+
+.input-field, .choice-box { 
+    -fx-font-size: 11px; 
+    -fx-pref-height: 45px; 
+    -fx-background-color: -white-panel; 
+    -fx-background-radius: 0; 
+    -fx-border-color: -border-color; 
+    -fx-border-width: 2px; 
+}
+.input-field:focused, .choice-box:focused { 
+    -fx-border-color: -primary-accent; 
+    -fx-background-color: #fff8f8; 
+}
+
+/* ===================================================================
+   6. TABEL & LIST
+   =================================================================== */
+
+/* Gaya Dasar TableView dan ListView */
+.table-view, .list-view { 
+    -fx-background-color: -white-panel; 
+    -fx-border-color: -border-color; 
+    -fx-border-width: 2px; 
+    -fx-background-radius: 0; 
+    -fx-border-radius: 0; 
+}
+
+/* Header Tabel */
+.table-view .column-header-background { -fx-background-color: -light-panel; }
+.table-view .column-header .label { -fx-padding: 12px; -fx-text-fill: -text-dark; -fx-font-size: 10px; }
+
+/* Cell/Baris untuk Tabel dan List (digabungkan dari duplikat) */
+.table-row-cell, .list-cell { 
+    -fx-padding: 12px; 
+    -fx-font-size: 10px; 
+    -fx-background-color: -white-panel; 
+    -fx-border-color: transparent transparent -light-panel transparent; 
+    -fx-border-width: 1px; 
+}
+.table-row-cell:hover, .list-cell:filled:hover { -fx-background-color: #f8f8f8; }
+.table-row-cell:selected { -fx-background-color: -secondary-accent; }
+.table-row-cell:selected .text { -fx-fill: -text-dark; }
+.list-cell.overdue { -fx-font-weight: bold; -fx-text-fill: -red-danger; }
+
+/* Placeholder ListView */
+.list-view .placeholder .label {
+    -fx-font-size: 11px;
+    -fx-text-fill: -grey-neutral;
+}
+
+/* List View Khusus */
+.peminjaman-list-view { -fx-background-color: transparent; -fx-border-width: 0; }
+.peminjaman-list-view .list-cell { -fx-background-color: transparent; -fx-padding: 0 0 15px 0; }
+.populer-list-cell { -fx-padding: 8px 5px; -fx-alignment: CENTER_LEFT; -fx-spacing: 10px; -fx-border-width: 0; }
+.populer-rank { -fx-font-size: 12px; -fx-text-fill: -secondary-accent; -fx-font-weight: bold; }
+
+/* ===================================================================
+   7. KOMPONEN SPESIFIK & KARTU
+   =================================================================== */
+/* (Tidak ada duplikasi signifikan di bagian ini, struktur dipertahankan) */
+
+/* Kartu: Peminjaman */
+.pinjaman-card { -fx-padding: 20px; -fx-alignment: center-left; -fx-spacing: 20px; }
+.pinjaman-card .label { -fx-font-size: 10px; }
+.pinjaman-card-status { -fx-font-size: 10px; -fx-font-weight: bold; }
+.pinjaman-card-overdue { -fx-background-color: #fff5f5; }
+.pinjaman-card-overdue .pinjaman-due-date, .pinjaman-card-overdue .pinjaman-card-status { -fx-text-fill: -red-danger; -fx-font-weight: bold; }
+
+/* Kartu: Anggota (Member) */
+.member-card { -fx-pref-width: 220px; -fx-padding: 20px; -fx-spacing: 10px; -fx-alignment: center; -fx-cursor: hand; -fx-transition: all 0.2s ease; }
+.member-card:hover { -fx-border-color: -primary-accent; -fx-background-color: #fffcfc; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4); }
+
+/* Kartu: Buku */
+.book-card { -fx-background-color: -white-panel; -fx-padding: 10px; -fx-border-color: transparent; -fx-border-width: 3px; -fx-background-radius: 0; -fx-border-radius: 0; -fx-alignment: top-center; -fx-spacing: 8px; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4); }
+.book-card:hover { -fx-border-color: -primary-accent; }
+.book-card-title { -fx-font-size: 10px; -fx-font-weight: bold; }
+.book-card-author { -fx-font-size: 9px; -fx-text-fill: -grey-neutral; }
+
+/* Kartu: Statistik (Laporan) */
+.stats-card { -fx-padding: 5px 10px; -fx-alignment: center; }
+
+/* Komponen: Banner Informasi */
+.info-banner { -fx-background-color: #e7f3fe; -fx-padding: 15px; -fx-border-color: #2980b9; -fx-border-width: 0 0 0 4px; -fx-alignment: center-left; }
+.info-banner .label { -fx-text-fill: #2c3e50; -fx-font-size: 11px; }
+.info-banner-icon { -fx-fill: #2980b9; }
+.info-icon { -fx-fill: -primary-light; -fx-font-size: 2em; }
+
+/* Komponen: Badge Status */
+.status-badge, .book-status-badge { -fx-padding: 4px 8px; -fx-background-radius: 0; -fx-text-fill: -text-light; -fx-font-size: 9px; }
+.status-tersedia { -fx-background-color: -green-ok; }
+.status-dipinjam { -fx-background-color: -orange-warning; }
+.status-kembali { -fx-background-color: -grey-neutral; }
+
+/* Komponen: Grafik (Charts) */
+.chart-bar { -fx-bar-fill: -primary-accent; -fx-background-color: -primary-accent; -fx-border-width: 2px; -fx-border-color: -border-color-dark; }
+.chart-bar:hover { -fx-background-color: derive(-primary-accent, -20%); }
+.axis .label { -fx-font-size: 8px; -fx-text-fill: -text-dark; }
+.chart-pie-label { -fx-font-size: 9px; -fx-fill: -text-dark; }
+
+/* Komponen: Sampul Buku Prosedural */
+.book-cover, .book-cover-generated { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2); }
+.book-cover-generated { -fx-pref-height: 180px; -fx-pref-width: 120px; -fx-alignment: center; }
+.cover-background { -fx-background-radius: 0; }
+.cover-icon .glyph-icon { -fx-fill: rgba(255, 255, 255, 0.7); }
+
+/* Komponen: Panel & Box Khusus */
+.denda-display-box { -fx-background-color: #fff8e1; -fx-padding: 15px; -fx-border-color: -secondary-accent; -fx-border-width: 2px; -fx-border-style: dashed; }
+.pin-container { -fx-background-color: #f9f4fc; -fx-padding: 20px; -fx-background-radius: 8px; -fx-border-color: -primary-light; -fx-border-radius: 8px; -fx-border-style: dashed; }
+.limit-info-panel { -fx-padding: 25px; -fx-background-color: #fff8e1; -fx-border-color: -orange-warning; -fx-max-width: 300px; }
+.limit-info-panel .list-view { -fx-border-width: 1px 0 1px 0; -fx-background-color: #fffcf2; }
+.limit-info-panel .list-cell { -fx-background-color: transparent; -fx-padding: 8px; -fx-font-weight: bold; }
+
+/* Komponen: ScrollPane & TilePane */
+.scroll-pane-pixel { -fx-background-color: transparent; -fx-border-width: 0; }
+.scroll-pane-pixel > .viewport { -fx-background-color: transparent; }
+.tile-pane { -fx-background-color: transparent; }

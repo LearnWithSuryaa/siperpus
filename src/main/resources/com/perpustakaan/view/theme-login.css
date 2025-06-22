@@ -1,0 +1,95 @@
+.root {
+    /* Palet Warna & Variabel untuk Tema Login */
+    -pixel-bg-dark: #1f1d2b;
+    -pixel-panel: rgba(38, 40, 55, 0.9);
+    -pixel-border-light: #4d5066;
+    -pixel-border-dark: #13121a;
+    -pixel-accent-primary: #ff79c6;
+    -pixel-accent-secondary: #50fa7b;
+    -pixel-text: #f8f8f2;
+    -pixel-text-muted: #6272a4;
+    -pixel-text-dark: #13121a; 
+}
+
+/* --- Latar Belakang Utama --- */
+.pixel-background {
+    -fx-background-image: url("../../../images/main-background.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+/* --- Panel Login Utama --- */
+.pixel-panel {
+    -fx-background-color: -pixel-panel;
+    -fx-padding: 30px;
+    -fx-border-color: -pixel-border-light -pixel-border-dark -pixel-border-dark -pixel-border-light;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 0);
+}
+.pixel-panel .label {
+    -fx-font-family: 'Press Start 2P';
+    -fx-font-size: 10px;
+    -fx-text-fill: -pixel-text;
+}
+.pixel-title {
+    -fx-font-family: 'Press Start 2P';
+    -fx-font-size: 20px;
+    -fx-text-fill: -pixel-text;
+    -fx-padding: 5px 0 15px 0;
+}
+.pixel-error-label {
+    -fx-font-family: 'Press Start 2P';
+    -fx-font-size: 9px;
+    -fx-text-fill: -pixel-accent-primary;
+}
+
+/* --- Komponen Form --- */
+.pixel-input {
+    -fx-font-family: 'Press Start 2P';
+    -fx-font-size: 11px;
+    -fx-pref-height: 40px;
+    -fx-background-color: -pixel-bg-dark;
+    -fx-text-fill: -pixel-text;
+    -fx-prompt-text-fill: -pixel-text-muted;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-border-color: -pixel-border-dark -pixel-border-light -pixel-border-light -pixel-border-dark;
+}
+.pixel-input:focused {
+    -fx-border-color: -pixel-accent-secondary;
+}
+
+/* Tombol Login Utama dengan warna teks yang sudah benar */
+.pixel-button {
+    -fx-font-family: 'Press Start 2P';
+    -fx-font-size: 12px;
+    -fx-pref-height: 45px;
+    -fx-background-color: -pixel-accent-primary;
+    -fx-text-fill: -pixel-text-dark; 
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 3px;
+    -fx-border-color: derive(-pixel-accent-primary, 30%) derive(-pixel-accent-primary, -30%) derive(-pixel-accent-primary, -30%) derive(-pixel-accent-primary, 30%);
+}
+.pixel-button:hover {
+    -fx-background-color: derive(-pixel-accent-primary, -10%);
+    -fx-cursor: hand;
+}
+.pixel-button:pressed {
+    -fx-padding: 3px -3px -3px 3px;
+    -fx-border-color: derive(-pixel-accent-primary, -30%) derive(-pixel-accent-primary, 30%) derive(-pixel-accent-primary, 30%) derive(-pixel-accent-primary, -30%);
+}
+
+/* Tombol Ikon "About" */
+.icon-action-button-pixel {
+    -fx-background-color: -pixel-bg-dark;
+    -fx-padding: 8px;
+    -fx-border-color: -pixel-border-light;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+}
+.icon-action-button-pixel:hover {
+    -fx-background-color: -pixel-border-light;
+}

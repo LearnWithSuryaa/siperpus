@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?> <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.perpustakaan.controller.ProfilController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="welcomeLabel" styleClass="page-title" text="Profil Saya" />
+            <Label fx:id="subtitleLabel" styleClass="page-subtitle" text="Lihat dan perbarui informasi akun Anda di sini." />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <HBox alignment="TOP_LEFT" spacing="25.0">
+         <children>
+            <VBox prefWidth="400.0" spacing="20.0" styleClass="form-container">
+               <children>
+                  <Label styleClass="form-title" text="Identitas Diri" />
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="USER_CIRCLE" size="2em" styleClass="info-icon" />
+                        <VBox>
+                           <Label styleClass="info-label" text="Nama Lengkap" />
+                           <Label fx:id="fullNameLabel" styleClass="info-data" text="-" />
+                        </VBox>
+                     </children>
+                     <padding><Insets top="10.0" /></padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="ID_CARD" size="1.8em" styleClass="info-icon" />
+                        <VBox>
+                           <Label styleClass="info-label" text="ID Anggota (NIM)" />
+                           <Label fx:id="memberIdLabel" styleClass="info-data" text="-" />
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="GRADUATION_CAP" size="1.8em" styleClass="info-icon" />
+                        <VBox>
+                           <Label styleClass="info-label" text="Jurusan" />
+                           <Label fx:id="majorLabel" styleClass="info-data" text="-" />
+                        </VBox>
+                     </children>
+                  </HBox>
+                   <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="INTERSEX" size="1.8em" styleClass="info-icon" />
+                        <VBox>
+                           <Label styleClass="info-label" text="Jenis Kelamin" />
+                           <Label fx:id="genderLabel" styleClass="info-data" text="-" />
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <VBox styleClass="form-container" HBox.hgrow="ALWAYS" spacing="15.0">
+               <children>
+                  <Label styleClass="form-title" text="Pengaturan Akun" />
+                  <VBox spacing="5.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Alamat Email" />
+                        <TextField fx:id="emailField" styleClass="input-field" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Nomor Telepon" />
+                        <TextField fx:id="teleponField" styleClass="input-field" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Label text="Alamat" />
+                        <TextArea fx:id="alamatField" prefRowCount="3" styleClass="input-field" wrapText="true" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="ubahPinButton" mnemonicParsing="false" onAction="#handleUbahPinButton" styleClass="clear-button" text="Ubah PIN Keamanan..." />
+                  
+                  <VBox fx:id="pinContainer" managed="false" spacing="15.0" styleClass="pin-container" visible="false">
+                     <children>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="PIN Baru (min. 4 digit)" />
+                              <PasswordField fx:id="pinField" styleClass="input-field" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Konfirmasi PIN Baru" />
+                              <PasswordField fx:id="konfirmasiPinField" styleClass="input-field" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Button fx:id="simpanButton" onAction="#handleSimpanButton" maxWidth="1.7976931348623157E308" styleClass="add-button" text="Simpan Perubahan">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                           <image>
+                              <Image url="@../../../images/icon_save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

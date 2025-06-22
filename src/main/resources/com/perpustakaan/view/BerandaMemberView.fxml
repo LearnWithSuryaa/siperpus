@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.perpustakaan.controller.BerandaMemberController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="welcomeLabel" styleClass="page-title" text="Selamat Datang!" />
+            <Label fx:id="subtitleLabel" styleClass="page-subtitle" text="Berikut adalah ringkasan aktivitas perpustakaan Anda." />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <HBox spacing="25.0">
+         <children>
+            <VBox styleClass="list-container" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="form-title" text="Pinjaman Aktif Anda" />
+                  <ListView fx:id="pinjamanAktifListView" />
+               </children>
+            </VBox>
+            <VBox spacing="20.0" prefWidth="300.0">
+               <children>
+                  <VBox styleClass="list-container">
+                     <children>
+                        <Label styleClass="form-title" text="Buku Terpopuler" />
+                        <ListView fx:id="bukuPopulerListView" />
+                     </children>
+                  </VBox>
+                  <Button onAction="#goToKatalog" maxWidth="1.7976931348623157E308" prefHeight="45.0" styleClass="add-button" text="Telusuri Katalog">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icon_search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

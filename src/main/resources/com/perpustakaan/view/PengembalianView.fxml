@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.perpustakaan.controller.PengembalianController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <VBox spacing="15.0">
+         <children>
+            <Label styleClass="page-title" text="Proses Pengembalian Buku" />
+            <TextField fx:id="searchField" prefHeight="45.0" promptText="Ketik untuk mencari NIM Anggota atau Judul Buku..." styleClass="input-field" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="peminjamanTableView" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="memberIdColumn" prefWidth="150.0" text="ID Anggota (NIM)" />
+            <TableColumn fx:id="judulColumn" prefWidth="300.0" text="Judul Buku" />
+            <TableColumn fx:id="tglKembaliColumn" prefWidth="150.0" text="Jatuh Tempo" />
+            <TableColumn fx:id="dendaColumn" prefWidth="150.0" text="Denda Saat Ini" />
+         </columns>
+      </TableView>
+   </center>
+   <right>
+      <VBox fx:id="detailPanel" managed="false" spacing="15.0" styleClass="form-container" visible="false">
+         <BorderPane.margin>
+            <Insets left="25.0" />
+         </BorderPane.margin>
+         <children>
+            <Label styleClass="form-title" text="Detail Transaksi" />
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="Nama Peminjam:" />
+                  <Label fx:id="detailNamaLabel" styleClass="info-data" text="-" />
+               </children>
+            </VBox>
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="Judul Buku:" />
+                  <Label fx:id="detailJudulLabel" styleClass="info-data" text="-" wrapText="true" />
+               </children>
+            </VBox>
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="Jatuh Tempo:" />
+                  <Label fx:id="detailJatuhTempoLabel" styleClass="info-data" text="-" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="denda-display-box">
+               <children>
+                  <Label text="DENDA KETERLAMBATAN" />
+                  <Label fx:id="dendaDetailLabel" styleClass="denda-display-text" text="Rp 0" />
+               </children>
+            </VBox>
+            <Button fx:id="prosesButton" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleProsesButton" prefHeight="45.0" styleClass="add-button" text="Proses Pengembalian">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icon_check.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

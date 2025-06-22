@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.perpustakaan.controller.WelcomeController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="welcomeLabel" styleClass="page-title" text="Selamat Datang, Admin!" />
+            <Label styleClass="page-subtitle" text="Ringkasan singkat aktivitas perpustakaan." />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <VBox spacing="25.0">
+         <children>
+            <HBox spacing="25.0">
+               <children>
+                  <VBox fx:id="kelolaBukuCard" onMouseClicked="#goToKelolaBuku" styleClass="action-card" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icon_book.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="action-card-title" text="Kelola Buku" />
+                        <Label styleClass="action-card-desc" text="Tambah, ubah, atau hapus data buku di dalam katalog." wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="kelolaAnggotaCard" onMouseClicked="#goToKelolaAnggota" styleClass="action-card" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icon_users.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="action-card-title" text="Kelola Anggota" />
+                        <Label styleClass="action-card-desc" text="Kelola data anggota, pendaftaran, dan penghapusan." wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="pengembalianCard" onMouseClicked="#goToPengembalian" styleClass="action-card" HBox.hgrow="ALWAYS">
+                     <children>
+                         <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icon_undo.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="action-card-title" text="Pengembalian Buku" />
+                        <Label styleClass="action-card-desc" text="Proses pengembalian buku dari anggota dan hitung denda." wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox spacing="25.0">
+               <children>
+                  <VBox styleClass="list-container" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="form-title" text="Aktivitas Terbaru" />
+                        <ListView fx:id="aktivitasListView" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="list-container" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="form-title" text="Perlu Perhatian (Terlambat)" />
+                        <ListView fx:id="perhatianListView" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
