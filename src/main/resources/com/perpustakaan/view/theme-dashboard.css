@@ -301,3 +301,26 @@
 .scroll-pane-pixel { -fx-background-color: transparent; -fx-border-width: 0; }
 .scroll-pane-pixel > .viewport { -fx-background-color: transparent; }
 .tile-pane { -fx-background-color: transparent; }
+
+/* Tombol Pagination */
+.prevPageButton, .nextPageButton {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.2, 0, 2);
+    -fx-border-color: transparent;
+}
+
+.prevPageButton:hover, .nextPageButton:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Label Info Halaman */
+.pageInfoLabel {
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #2c3e50;
+}

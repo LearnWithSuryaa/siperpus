@@ -7,85 +7,98 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?> <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
 
 <BorderPane fx:id="rootBorderPane" styleClass="content-area" xmlns="http://javafx.com/javafx/21"
-   xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.perpustakaan.controller.KatalogBukuController">
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.perpustakaan.controller.KatalogBukuController">
    <padding>
-      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+      <Insets top="25.0" right="25.0" bottom="25.0" left="25.0"/>
    </padding>
+
    <top>
       <VBox spacing="15.0">
          <children>
-            <Label styleClass="page-title" text="Katalog Buku" />
-            <HBox fx:id="limitWarningBox" alignment="CENTER_LEFT" managed="false" spacing="15.0"
-               styleClass="info-banner" visible="false">
+            <Label styleClass="page-title" text="Katalog Buku"/>
+            <HBox fx:id="limitWarningBox" alignment="CENTER_LEFT" managed="false" visible="false"
+                  spacing="15.0" styleClass="info-banner">
                <children>
-                  <FontAwesomeIconView glyphName="INFO_CIRCLE" size="2em"
-                     styleClass="info-banner-icon" />
-                  <Label
-                     text="Anda telah mencapai batas maksimal peminjaman (3 buku). Anda tetap bisa melihat katalog."
-                     wrapText="true" />
+                  <FontAwesomeIconView glyphName="INFO_CIRCLE" size="2em" styleClass="info-banner-icon"/>
+                  <Label wrapText="true"
+                         text="Anda telah mencapai batas maksimal peminjaman (3 buku)"/>
                </children>
             </HBox>
             <HBox spacing="10.0">
                <children>
-                  <TextField fx:id="searchField" prefHeight="45.0"
-                     promptText="Ketik untuk mencari..." styleClass="input-field"
-                     HBox.hgrow="ALWAYS" />
-                  <ChoiceBox fx:id="categoryFilterChoiceBox" prefHeight="45.0" prefWidth="200.0"
-                     styleClass="input-field" />
-                  <ChoiceBox fx:id="sortChoiceBox" prefHeight="45.0" prefWidth="180.0"
-                     styleClass="input-field" />
+                  <TextField fx:id="searchField" promptText="Ketik untuk mencari..."
+                             styleClass="input-field" prefHeight="45.0" HBox.hgrow="ALWAYS"/>
+                  <ChoiceBox fx:id="categoryFilterChoiceBox" styleClass="input-field"
+                             prefHeight="45.0" prefWidth="200.0"/>
+                  <ChoiceBox fx:id="sortChoiceBox" styleClass="input-field"
+                             prefHeight="45.0" prefWidth="180.0"/>
                </children>
             </HBox>
          </children>
          <BorderPane.margin>
-            <Insets bottom="20.0" />
+            <Insets bottom="20.0"/>
          </BorderPane.margin>
       </VBox>
    </top>
+
    <center>
-      <ScrollPane fitToWidth="true" styleClass="scroll-pane-pixel">
-         <content>
-            <TilePane fx:id="bookTilePane" hgap="20.0" vgap="20.0" />
-         </content>
-      </ScrollPane>
+      <StackPane>
+         <children>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" styleClass="scroll-pane-pixel">
+               <content>
+                  <TilePane fx:id="bookTilePane" hgap="20.0" vgap="20.0"/>
+               </content>
+            </ScrollPane>
+            <VBox fx:id="loadingBox" alignment="CENTER" visible="false" managed="false" spacing="10.0">
+               <children>
+                  <ProgressIndicator fx:id="loadingIndicator" progress="-1.0"/>
+                  <Label text="Memuat buku..." style="-fx-font-size: 14px;"/>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
    </center>
+
    <right>
       <VBox fx:id="detailPanel" spacing="15.0" styleClass="form-container">
          <BorderPane.margin>
-            <Insets left="25.0" />
+            <Insets left="25.0"/>
          </BorderPane.margin>
          <children>
-            <Label styleClass="form-title" text="Detail Peminjaman" />
+            <Label styleClass="form-title" text="Detail Peminjaman"/>
             <GridPane hgap="10.0" vgap="10.0">
                <children>
-                  <Label text="Judul:" />
-                  <Label fx:id="titleLabel" style="-fx-font-weight: bold;" text="-" wrapText="true"
-                     GridPane.columnIndex="1" />
-                  <Label text="Penulis:" GridPane.rowIndex="1" />
-                  <Label fx:id="authorLabel" style="-fx-font-weight: bold;" text="-"
-                     GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Durasi Pinjam:" GridPane.rowIndex="2" />
-                  <ChoiceBox fx:id="durasiChoiceBox" maxWidth="1.7976931348623157E308"
-                     styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Label text="Jatuh Tempo:" GridPane.rowIndex="3" />
-                  <Label fx:id="dueDateLabel" style="-fx-font-weight: bold;" text="-"
-                     GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Judul:"/>
+                  <Label fx:id="titleLabel" text="-" wrapText="true"
+                         style="-fx-font-weight: bold;" GridPane.columnIndex="1"/>
+                  <Label text="Penulis:" GridPane.rowIndex="1"/>
+                  <Label fx:id="authorLabel" text="-" style="-fx-font-weight: bold;"
+                         GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                  <Label text="Durasi Pinjam:" GridPane.rowIndex="2"/>
+                  <ChoiceBox fx:id="durasiChoiceBox" styleClass="input-field"
+                             GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                  <Label text="Jatuh Tempo:" GridPane.rowIndex="3"/>
+                  <Label fx:id="dueDateLabel" text="-" style="-fx-font-weight: bold;"
+                         GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                </children>
             </GridPane>
-            <Label styleClass="fine-info-label" text="*Denda keterlambatan: Rp 1.000 per hari."
-               wrapText="true" />
-            <Button fx:id="borrowButton" disable="true" mnemonicParsing="false"
-               onAction="#handleBorrowButton" prefHeight="40.0" prefWidth="250.0"
-               styleClass="add-button" text="Pinjam Buku Ini" />
+            <Label text="*Denda keterlambatan: Rp 1.000 per hari." wrapText="true"
+                   styleClass="fine-info-label"/>
+            <Button fx:id="borrowButton" text="Pinjam Buku Ini" disable="true"
+                    onAction="#handleBorrowButton" prefWidth="250.0" prefHeight="40.0"
+                    styleClass="add-button"/>
          </children>
       </VBox>
    </right>

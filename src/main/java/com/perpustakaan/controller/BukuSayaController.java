@@ -38,7 +38,6 @@ public class BukuSayaController {
 
     /**
      * Konstruktor untuk inisialisasi DAO.
-     * Biasanya dipanggil oleh JavaFX saat controller di-load.
      */
     public BukuSayaController() {
         this.bookDAO = new BookDAO();

@@ -103,7 +103,7 @@ public class KelolaAnggotaController {
      * @return VBox yang berisi informasi anggota dalam bentuk kartu.
      */
     private VBox createMemberCard(Member member) {
-        String iconPath = "/images/icon_user.png";
+        String iconPath = "/images/icon_user_lk.png";
         if ("Perempuan".equalsIgnoreCase(member.getGender())) {
             iconPath = "/images/icon_user_wm.png";
         }

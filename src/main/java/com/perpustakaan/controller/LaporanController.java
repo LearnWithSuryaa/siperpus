@@ -53,7 +53,7 @@ public class LaporanController {
 
     /**
      * Konstruktor untuk inisialisasi DAO.
-     * Biasanya dipanggil oleh JavaFX saat controller di-load.
+     * Dipanggil oleh JavaFX saat controller di-load.
      */
     public LaporanController() {
         this.bookDAO = new BookDAO();
@@ -84,7 +84,6 @@ public class LaporanController {
 
     /**
      * Metode ini dipanggil oleh MainViewController untuk mengirimkan data penting.
-     * Biasanya digunakan untuk setup awal atau reset filter.
      */
     @FXML
     private void handleTerapkanFilter() {

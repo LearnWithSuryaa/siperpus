@@ -22,12 +22,18 @@ import java.util.Optional;
 
 public class LoginController {
 
-    @FXML private ImageView logoImageView;
-    @FXML private TextField usernameField;
-    @FXML private PasswordField pinField;
-    @FXML private Label statusLabel;
-    @FXML private Button loginButton;
-    @FXML private Button aboutButton;
+    @FXML
+    private ImageView logoImageView;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField pinField;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private Button aboutButton;
 
     private MemberDAO memberDAO;
 
@@ -41,7 +47,8 @@ public class LoginController {
 
     /**
      * Metode ini dijalankan otomatis oleh JavaFX saat controller diinisialisasi.
-     * Digunakan untuk setup awal seperti memuat logo, mengatur tombol login interaktif, dan reset error.
+     * Digunakan untuk setup awal seperti memuat logo, mengatur tombol login
+     * interaktif, dan reset error.
      */
     @FXML
     public void initialize() {
@@ -69,18 +76,16 @@ public class LoginController {
      */
     private void setupInteractiveLoginButton() {
         loginButton.disableProperty().bind(
-            Bindings.createBooleanBinding(() ->
-                usernameField.getText().trim().isEmpty() ||
-                pinField.getText().trim().isEmpty(),
-                usernameField.textProperty(),
-                pinField.textProperty()
-            )
-        );
+                Bindings.createBooleanBinding(() -> usernameField.getText().trim().isEmpty() ||
+                        pinField.getText().trim().isEmpty(),
+                        usernameField.textProperty(),
+                        pinField.textProperty()));
     }
-    
+
     /**
-     * Menambahkan listener pada field input untuk menyembunyikan label status saat pengguna mengetik.
-     * Ini membantu menghindari kebingungan jika pengguna ingin mencoba login lagi setelah gagal.
+     * Menambahkan listener pada field input untuk menyembunyikan label status saat
+     * pengguna mengetik. Membantu menghindari kebingungan jika pengguna ingin mencoba login lagi
+     * setelah gagal.
      */
     private void setupErrorResetListeners() {
         usernameField.textProperty().addListener((_, _, _) -> statusLabel.setVisible(false));
@@ -108,7 +113,7 @@ public class LoginController {
         }
         showError("ID PENGGUNA ATAU PASSWORD SALAH");
     }
-    
+
     /**
      * Metode ini dipanggil saat tombol "Tentang Aplikasi" ditekan.
      * Menampilkan dialog informasi tentang aplikasi perpustakaan.
@@ -119,17 +124,20 @@ public class LoginController {
         alert.setTitle("Tentang Aplikasi");
         alert.setHeaderText("Sistem Informasi Perpustakaan (Pixel Edition)");
         alert.setContentText("Aplikasi ini adalah hasil dari proses belajar dan pengembangan bersama.");
-        
+
         DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setPrefSize(400, 280); 
         dialogPane.getStylesheets().add(getClass().getResource("/com/perpustakaan/view/base.css").toExternalForm());
-        dialogPane.getStylesheets().add(getClass().getResource("/com/perpustakaan/view/theme-dashboard.css").toExternalForm());
-        
+        dialogPane.getStylesheets()
+                .add(getClass().getResource("/com/perpustakaan/view/theme-dashboard.css").toExternalForm());
+
         alert.showAndWait();
     }
 
     /**
-     * Metode ini digunakan untuk menavigasi ke dashboard sesuai dengan peran pengguna.
-     * @param role Peran pengguna (Admin atau Mahasiswa)
+     * Metode ini digunakan untuk menavigasi ke dashboard sesuai dengan peran
+     * pengguna.
+     * @param role     Peran pengguna (Admin atau Mahasiswa)
      * @param username ID pengguna yang berhasil login
      * @throws IOException Jika terjadi kesalahan saat memuat FXML
      */
@@ -139,22 +147,22 @@ public class LoginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/perpustakaan/view/MainView.fxml"));
         Parent mainViewRoot = loader.load();
         MainViewController controller = loader.getController();
-        
+
         String themeFile = "theme-dashboard.css";
         controller.initData(role, username, themeFile);
-        
+
         Scene scene = new Scene(mainViewRoot, 1280, 770);
-        
+
         String baseCss = getClass().getResource("/com/perpustakaan/view/base.css").toExternalForm();
         String themeCss = getClass().getResource("/com/perpustakaan/view/" + themeFile).toExternalForm();
         scene.getStylesheets().addAll(baseCss, themeCss);
-        
+
         stage.setScene(scene);
         stage.setTitle("Dashboard Perpustakaan");
         stage.setResizable(true);
         stage.centerOnScreen();
     }
-    
+
     private void showError(String message) {
         statusLabel.setText(message);
         statusLabel.setVisible(true);

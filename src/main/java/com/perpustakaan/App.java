@@ -12,7 +12,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/perpustakaan/view/LoginView.fxml"));
         // Atur ukuran awal jendela aplikasi
-        Scene scene = new Scene(root, 960, 540); 
+        Scene scene = new Scene(root, 960, 600); 
         
         // Tambahkan stylesheet untuk tema dan styling
         String baseCss = getClass().getResource("/com/perpustakaan/view/base.css").toExternalForm();

@@ -51,7 +51,6 @@ public class KelolaBukuController {
 
     /**
      * Konstruktor untuk inisialisasi BookDAO.
-     * Biasanya dipanggil oleh JavaFX saat controller di-load.
      */
     public KelolaBukuController() {
         this.bookDAO = new BookDAO();
